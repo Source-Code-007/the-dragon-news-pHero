@@ -9,6 +9,8 @@ import {
 import Layout from './layout';
 import Homepage from './Components/Homepage/Homepage';
 import AuthContext from './AuthContext/AuthContext';
+import Signin from './Components/Signin/Signin';
+import Signup from './Components/Signup/Signup';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Homepage></Homepage>
+      },
+      {
+        path: '/signin',
+        element: <Signin></Signin>
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>
       },
     ]
   }

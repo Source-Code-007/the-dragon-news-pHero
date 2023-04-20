@@ -1,0 +1,10 @@
+.my-inp{
+    background-color: #70707021;
+    border: none;
+    color: #00000080;
+    width: full;
+}
+.my-inp::placeholder{
+    color: #00000080;
+    font-weight: bold;
+}
