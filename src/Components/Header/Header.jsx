@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../AuthContext/AuthContext';
 import './Header.css'
 import logo from '../../assets/img/logo.png'
+import Marquee from "react-fast-marquee";
+import moment from 'moment';
 
 
 const Header = () => {
@@ -27,10 +28,12 @@ const Header = () => {
                 <div className='text-center'>
                     <img src={logo} alt="" />
                     <p className='my-3'>Journalism Without Fear or Favour</p>
-                    <p className='my-3'>Sunday, November 27, 2022</p>
+                    <p className='my-3'> { moment().format('MMMM Do YYYY, h:mm:ss a') } </p>
                     <div className='d-flex gap-2 py-4 px-3 my-3 shadow rounded'>
-                        <button className='btn btn-primary'>Latest</button> 
-                        <p className='d-flex align-items-center'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
+                        <button className='btn btn-primary'>Latest</button>
+                        <Marquee>
+                            <p className='d-flex align-items-center'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
+                        </Marquee>
                     </div>
                 </div>
                 <Navbar className='shadow' expand="lg">
