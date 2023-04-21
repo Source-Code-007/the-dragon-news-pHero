@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import './Signin.css'
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthContext/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signin = () => {
     const { signinWithEmailPassFunc, setUser } = useContext(authContext)
     const [ showPass, setShowPass ] = useState(true)
+    const navigate = useNavigate()
 
     // sign in submit function
     const signinSubmitFunc = (e)=>{
@@ -22,6 +23,8 @@ const Signin = () => {
                 console.log('verified your email first');
                 return
             }
+
+            navigate('/')
             setUser(currUser)
             console.log(currUser);
         }).catch(e=>{
