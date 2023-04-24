@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import Homepage from './Components/Homepage/Homepage';
@@ -11,6 +12,7 @@ import AuthContext from './AuthContext/AuthContext';
 import Signin from './Components/Signin/Signin';
 import Signup from './Components/Signup/Signup';
 import LayoutMain from './LayoutMain';
+import HomepageMiddle from './Components/Homepage/HomepageMiddle';
 
 const router = createBrowserRouter([
   {
@@ -19,14 +21,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Homepage></Homepage>
+        element: <Navigate to={`/category/${0}`}></Navigate>,
       },
       {
         path: '/home',
-        element: <Homepage></Homepage>,
+        element: <Navigate to={`/category/${0}`}></Navigate>,
       },
       {
-        path: '/signin',
+        path: '/',
+        element: <Homepage></Homepage>,
+        children: [
+          {
+            path: '/category/:id',
+            element: <HomepageMiddle></HomepageMiddle>,
+          }
+        ]
+      },
+      {
+        path: 'signin',
         element: <Signin></Signin>
       },
       {

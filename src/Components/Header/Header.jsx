@@ -24,19 +24,19 @@ const Header = () => {
 
     return (
         <header className='py-3'>
-            <div className="container">
-                <div className='text-center'>
+            <div className="container text-center">
+                <div>
                     <img src={logo} alt="" />
                     <p className='my-3'>Journalism Without Fear or Favour</p>
-                    <p className='my-3'> { moment().format('MMMM Do YYYY, h:mm:ss a') } </p>
-                    <div className='d-flex gap-2 py-4 px-3 my-3 shadow rounded'>
-                        <button className='btn btn-primary'>Latest</button>
-                        <Marquee>
-                            <p className='d-flex align-items-center'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
-                        </Marquee>
-                    </div>
+                    <p className='my-3'> {moment().format('MMMM Do YYYY, h:mm:ss a')} </p>
                 </div>
-                <Navbar className='shadow' expand="lg">
+                <div className='d-flex gap-2 py-4 px-3 my-3 shadow rounded'>
+                    <button className='btn btn-primary'>Latest</button>
+                    <Marquee>
+                        <p className='d-flex align-items-center'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
+                    </Marquee>
+                </div>
+                <Navbar className='shadow p-2' expand="lg">
                     <Link to='/' className='text-light fw-bold text-dark text-decoration-none display-6'>The Dragon News</Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
