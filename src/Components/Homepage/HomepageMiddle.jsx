@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaEye, FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
 
@@ -53,12 +53,15 @@ const HomepageMiddle = () => {
                     }
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
-                            <p>{<Rating
+                            <p>
+                            {/* {<Rating
                                 initialRating={rating.number}
                                 emptySymbol={<FaRegStar></FaRegStar>}
                                 fullSymbol={<FaStar></FaStar>}
-                            />}</p>
-                            <p>{total_view}</p>
+                            />} */}
+                            rating
+                            </p>
+                            <p> <FaEye></FaEye> {total_view}</p>
                         </div>
                     </Card.Body>
                 </Card>
@@ -89,12 +92,15 @@ const HomepageMiddle = () => {
                 }
                 <Card.Body>
                     <div className='d-flex justify-content-between gap-3'>
-                        <p>{<Rating
+                        <p>
+                            {/* {<Rating
                             initialRating={rating.number}
                             emptySymbol={<FaRegStar></FaRegStar>}
                             fullSymbol={<FaStar></FaStar>}
-                        />}</p>
-                        <p>{total_view}</p>
+                        />} */}
+                        rating
+                        </p>
+                        <p> <FaEye></FaEye> {total_view}</p>
                     </div>
                 </Card.Body>
             </Card>
