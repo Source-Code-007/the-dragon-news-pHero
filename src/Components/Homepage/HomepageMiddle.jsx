@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
 
 const HomepageMiddle = () => {
@@ -45,13 +47,17 @@ const HomepageMiddle = () => {
                     <Card.Img variant="top" src={image_url} />
                     {
                         details.length < 250 ? <p>{details}</p> : <div>
-                            <p>{details.substring(0, 250)}</p>
+                            <p>{details.substring(0, 250)}...</p>
                             <Button variant="primary">Read More</Button>
                         </div>
                     }
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
-                            <p>{rating.number}</p>
+                            <p><Rating
+                                initialRating={rating.number}
+                                emptySymbol={<FaRegStar></FaRegStar>}
+                                fullSymbol={<FaStar></FaStar>}
+                            /></p>
                             <p>{total_view}</p>
                         </div>
                     </Card.Body>
@@ -77,13 +83,17 @@ const HomepageMiddle = () => {
                 <Card.Img variant="top" src={image_url} />
                 {
                     details.length < 250 ? <p>{details}</p> : <div>
-                        <p>{details.substring(0, 250)}</p>
+                        <p>{details.substring(0, 250)}...</p>
                         <Button variant="primary">Read More</Button>
                     </div>
                 }
                 <Card.Body>
                     <div className='d-flex justify-content-between gap-3'>
-                        <p>{rating.number}</p>
+                        <p><Rating
+                            initialRating={rating.number}
+                            emptySymbol={<FaRegStar></FaRegStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                        /></p>
                         <p>{total_view}</p>
                     </div>
                 </Card.Body>
