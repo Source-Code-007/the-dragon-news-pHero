@@ -6,7 +6,7 @@ const HomepageMiddle = () => {
     const { id } = useParams()
     const [newsData, setNewsData] = useState('')
 
-    // load news data
+    // fetch/load news data
     useEffect(() => {
         fetch('http://localhost:3000/news')
             .then(res => res.json())

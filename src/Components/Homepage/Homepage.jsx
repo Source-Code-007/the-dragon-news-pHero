@@ -6,7 +6,7 @@ import { Link, Navigate, Outlet } from 'react-router-dom';
 const Homepage = () => {
     const [categories, setCategories] = useState()
 
-    // load catagories data for left side nav
+    // fetch/load catagories data for left side nav
     useEffect(() => {
         fetch('http://localhost:3000/categories')
             .then(res => res.json())
