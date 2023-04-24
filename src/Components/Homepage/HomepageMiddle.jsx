@@ -53,11 +53,11 @@ const HomepageMiddle = () => {
                     }
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
-                            <p><Rating
+                            <p>{<Rating
                                 initialRating={rating.number}
                                 emptySymbol={<FaRegStar></FaRegStar>}
                                 fullSymbol={<FaStar></FaStar>}
-                            /></p>
+                            />}</p>
                             <p>{total_view}</p>
                         </div>
                     </Card.Body>
@@ -89,11 +89,11 @@ const HomepageMiddle = () => {
                 }
                 <Card.Body>
                     <div className='d-flex justify-content-between gap-3'>
-                        <p><Rating
+                        <p>{<Rating
                             initialRating={rating.number}
                             emptySymbol={<FaRegStar></FaRegStar>}
                             fullSymbol={<FaStar></FaStar>}
-                        /></p>
+                        />}</p>
                         <p>{total_view}</p>
                     </div>
                 </Card.Body>
