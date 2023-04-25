@@ -13,6 +13,7 @@ import Signin from './Components/Signin/Signin';
 import Signup from './Components/Signup/Signup';
 import LayoutMain from './LayoutMain';
 import HomepageMiddle from './Components/Homepage/HomepageMiddle';
+import News from './Components/News/News';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             element: <HomepageMiddle></HomepageMiddle>,
           }
         ]
+      },
+      {
+        path: 'news/:id',
+        element: <News></News>
       },
       {
         path: 'signin',
