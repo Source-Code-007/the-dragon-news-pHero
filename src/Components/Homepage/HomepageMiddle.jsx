@@ -21,7 +21,6 @@ const HomepageMiddle = () => {
             .then(data => setNewsData(data))
     }, [id])
 
-
         return (
             newsData && newsData.map(news => {
                 const { author, details, image_url, title, rating, total_view, _id } = news
