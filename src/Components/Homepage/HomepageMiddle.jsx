@@ -4,6 +4,12 @@ import { FaEye, FaRegStar, FaStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useParams } from 'react-router-dom';
 
+// Animation
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
+
 const HomepageMiddle = () => {
     const { id } = useParams()
     const [newsData, setNewsData] = useState('')
@@ -30,7 +36,8 @@ const HomepageMiddle = () => {
         return (
             newsData && newsData.map(news => {
                 const { author, details, image_url, title, rating, total_view } = news
-                return <Card key={news._id} className='p-3 mb-3'>
+                return <Card key={news._id} className='p-3 mb-3' data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom">
                     <div className='d-flex justify-content-between mb-2'>
                         <div className='d-flex gap-2'>
                             <img style={{ height: '60px', width: '60px' }} className='rounded-circle' src={author.img} alt="" />
@@ -54,12 +61,12 @@ const HomepageMiddle = () => {
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
                             <p>
-                            {/* {<Rating
+                                {/* {<Rating
                                 initialRating={rating.number}
                                 emptySymbol={<FaRegStar></FaRegStar>}
                                 fullSymbol={<FaStar></FaStar>}
                             />} */}
-                            rating
+                                rating
                             </p>
                             <p> <FaEye></FaEye> {total_view}</p>
                         </div>
@@ -69,7 +76,7 @@ const HomepageMiddle = () => {
         )
     } else {
         return (
-            newsData && <Card className='p-3'>
+            newsData && <Card className='p-3'data-aos="zoom-in-up">
                 <div className='d-flex justify-content-between mb-2'>
                     <div className='d-flex gap-2'>
                         <img style={{ height: '60px', width: '60px' }} className='rounded-circle' src={author.img} alt="" />
@@ -98,7 +105,7 @@ const HomepageMiddle = () => {
                             emptySymbol={<FaRegStar></FaRegStar>}
                             fullSymbol={<FaStar></FaStar>}
                         />} */}
-                        rating
+                            rating
                         </p>
                         <p> <FaEye></FaEye> {total_view}</p>
                     </div>
