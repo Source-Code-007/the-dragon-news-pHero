@@ -1,5 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import LayoutMain from "./LayoutMain";
+import LayoutMain from "./Layout/LayoutMain";
 import Homepage from "./Components/Homepage/Homepage";
 import HomepageMiddle from "./Components/Homepage/HomepageMiddle";
 import News from "./Components/News/News";
