@@ -2,6 +2,8 @@ import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const HomepageRight = () => {
+
+    // style for social media icon
     const iconStyle = {
         height: '30px', 
         width: '30px', 
