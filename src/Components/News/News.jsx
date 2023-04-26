@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import HomepageRight from '../Homepage/HomepageRight';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -25,7 +25,7 @@ const News = () => {
                             <Card.Body>
                                 <h3>{newsData.title}</h3>
                                 <p className='my-3'>{newsData.details}</p>
-                                <Button variant="danger"> <FaArrowLeft/> All news in this category</Button>{' '}
+                                <Link to={`/category/${newsData.category_id}`}><Button variant="danger"> <FaArrowLeft/> All news in this category</Button></Link>
                             </Card.Body>
                         </Card>
                     }

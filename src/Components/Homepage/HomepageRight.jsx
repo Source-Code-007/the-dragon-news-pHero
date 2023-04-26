@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { authContext } from '../../AuthContext/AuthContext';
+import Qzonee from './Qzonee';
 
 const HomepageRight = () => {
     const { signinWithGoogleFunc, signinWithGithubFunc } = useContext(authContext)
@@ -57,6 +58,7 @@ const HomepageRight = () => {
                     <li className='p-4 border'> <span style={iconStyle}><FaLinkedin></FaLinkedin></span> Linkedin</li>
                 </ul>
             </div>
+            <Qzonee></Qzonee>
         </>
     );
 };

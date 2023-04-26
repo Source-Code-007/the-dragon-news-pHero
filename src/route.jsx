@@ -5,6 +5,7 @@ import HomepageMiddle from "./Components/Homepage/HomepageMiddle";
 import News from "./Components/News/News";
 import Signin from "./Components/Signin/Signin";
 import Signup from "./Components/Signup/Signup";
+import About from "./Components/About/About";
 
 export const router = createBrowserRouter([
     {
@@ -13,11 +14,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Navigate to={`/category/${0}`}></Navigate>,
-            },
-            {
-                path: '/home',
-                element: <Navigate to={`/category/${0}`}></Navigate>,
+                element: <Homepage></Homepage>,
+                children: [
+                    {
+                        path: '/',
+                        element: <HomepageMiddle></HomepageMiddle>,
+                    }
+                ]
             },
             {
                 path: '/',
@@ -30,8 +33,22 @@ export const router = createBrowserRouter([
                 ]
             },
             {
+                path: '/home',
+                element: <Homepage></Homepage>,
+                children: [
+                    {
+                        path: '/home',
+                        element: <HomepageMiddle></HomepageMiddle>,
+                    }
+                ]
+            },
+            {
                 path: 'news/:id',
                 element: <News></News>
+            },
+            {
+                path: 'about',
+                element: <About></About>
             },
             {
                 path: 'signin',

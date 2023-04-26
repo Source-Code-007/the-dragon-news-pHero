@@ -16,7 +16,7 @@ const HomepageMiddle = () => {
 
     // fetch/load news data
     useEffect(() => {
-        fetch(`http://localhost:3000/categories/${id}`)
+        fetch(`http://localhost:3000/categories/${id || 0}`)
             .then(res => res.json())
             .then(data => setNewsData(data))
     }, [id])
@@ -44,7 +44,7 @@ const HomepageMiddle = () => {
                     {
                         details.length < 250 ? <p>{details}</p> : <div>
                             <p>{details.substring(0, 250)}...</p>
-                            <Link to={`/news/${_id}`}>Read More</Link>
+                            <Link to={`/news/${_id}`}><button className='btn btn-secondary'>Read More</button></Link>
                         </div>
                     }
                     <Card.Body>
