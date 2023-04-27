@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import HomepageRight from './HomepageRight';
 import HomepageMiddle from './HomepageMiddle';
-import { Link, Navigate, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import HomepageLeft from './HomepageLeft';
 
 const Homepage = () => {
     const [categories, setCategories] = useState()
@@ -20,9 +21,7 @@ const Homepage = () => {
                 <div className="col-lg-3">
                     {
                         categories && categories.map(category => {
-                            return <Link to={`/category/${category.id}`} className=' d-block text-center text-decoration-none fw-bold text-secondary my-1 border py-3 px-2 rounded-2'
-                                key={category.id}>
-                                {category.name} </Link>
+                            return <HomepageLeft key={category.id} categoryID={category.id} categoryName={category.name}></HomepageLeft>
                         })
 
                     }

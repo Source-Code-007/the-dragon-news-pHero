@@ -6,6 +6,7 @@ import News from "./Components/News/News";
 import Signin from "./Components/Signin/Signin";
 import Signup from "./Components/Signup/Signup";
 import About from "./Components/About/About";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -47,8 +48,8 @@ export const router = createBrowserRouter([
                 element: <News></News>
             },
             {
-                path: 'about',
-                element: <About></About>
+                path: '/about',
+                element: <PrivateRoute> <About></About> </PrivateRoute>
             },
             {
                 path: 'signin',

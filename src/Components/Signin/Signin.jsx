@@ -2,32 +2,39 @@ import React, { useContext, useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import './Signin.css'
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthContext/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signin = () => {
     const { signinWithEmailPassFunc, setUser } = useContext(authContext)
     const [showPass, setShowPass] = useState(true)
+    const [ error, setError ] = useState('')
+    const [ success, setSuccess ] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
+    // console.log(location.state?.pathname);
 
     // sign in submit function
     const signinSubmitFunc = (e) => {
         e.preventDefault()
+        setError('')
+        setSuccess('')
         const email = e.target.email.value
         const password = e.target.password.value
 
         signinWithEmailPassFunc(email, password).then(res => {
             const currUser = res.user
             if (!currUser.emailVerified) {
-                console.log('verified your email first');
+                setError('verified your email first')
                 return
             }
-
-            navigate('/')
             setUser(currUser)
+            setSuccess('user signin successfully')
             console.log(currUser);
+            navigate(location.state?.pathname || '/')
         }).catch(e => {
+            setError(e.message)
             console.log(e.message)
         })
     }
@@ -40,13 +47,15 @@ const Signin = () => {
                 <h4>Please login!</h4>
                 <Form.Group className="mb-3 w-100" controlId="formGroupEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control className='my-inp' name='email' type="email" placeholder="Enter email" />
+                    <Form.Control className='my-inp' name='email' type="email" placeholder="Enter email" required/>
                 </Form.Group>
                 <Form.Group className="mb-3 w-100 position-relative" controlId="formGroupPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control className='my-inp' name='password' type={showPass ? 'password' : 'text'} placeholder="Password" />
+                    <Form.Control className='my-inp' name='password' type={showPass ? 'password' : 'text'} placeholder="Password" required/>
                     <span onClick={() => setShowPass(!showPass)} className='position-absolute' style={{ right: '8px', bottom: '8px' }}> {showPass ? <FaEyeSlash /> : <FaEye />} </span>
                 </Form.Group>
+                {success && <p className='text-success'>{success}</p>}
+                {error && <p className='text-danger'>{error}</p>}
                 <Button type='submit' variant='success' className='w-100'>Login</Button>
                 <h6 className='mt-3'>Don't have an account? <Link to='/signup'>Register</Link></h6>
             </Form>
