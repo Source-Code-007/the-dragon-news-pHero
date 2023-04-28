@@ -7,7 +7,7 @@ import { authContext } from '../../AuthContext/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Signin = () => {
-    const { signinWithEmailPassFunc, setUser } = useContext(authContext)
+    const { signinWithEmailPassFunc, setUser, setLoading } = useContext(authContext)
     const [showPass, setShowPass] = useState(true)
     const [ error, setError ] = useState('')
     const [ success, setSuccess ] = useState('')
@@ -34,6 +34,7 @@ const Signin = () => {
             console.log(currUser);
             navigate(location.state?.pathname || '/')
         }).catch(e => {
+            setLoading(false)
             setError(e.message)
             console.log(e.message)
         })

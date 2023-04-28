@@ -24,6 +24,7 @@ const AuthContext = ({ children }) => {
 
     // signin with email and password func 
     const signinWithEmailPassFunc = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -73,7 +74,8 @@ const AuthContext = ({ children }) => {
         signOutFunc,
         user,
         setUser,
-        loading
+        loading,
+        setLoading
     }
 
     return (
