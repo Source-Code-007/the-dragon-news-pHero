@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,16 @@ import moment from 'moment';
 
 const Header = () => {
     const { user, setUser, signOutFunc, loading } = useContext(authContext)
+    const [ realTime,setRealTime ] = useState(moment())
+
+    useEffect(()=>{
+        const liveTimer = setInterval(() => {
+            setRealTime(moment())
+        }, 1000);
+        return ()=>{
+            clearInterval(liveTimer)
+        }
+    },[])
 
     // sign out func
     const handleSignOut = () => {
@@ -28,7 +38,7 @@ const Header = () => {
                 <div>
                     <img src={logo} alt="" />
                     <p className='my-3'>Journalism Without Fear or Favour</p>
-                    <p className='my-3'> {moment().format('MMMM Do YYYY, h:mm:ss a')} </p>
+                    <p className='my-3'> {realTime.format('MMMM Do YYYY, h:mm:ss a')} </p>
                 </div>
                 <div className='d-flex gap-2 py-4 px-3 my-3 shadow rounded'>
                     <button className='btn btn-primary'>Latest</button>
