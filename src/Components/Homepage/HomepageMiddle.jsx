@@ -13,6 +13,7 @@ AOS.init();
 const HomepageMiddle = () => {
     const { id } = useParams()
     const [newsData, setNewsData] = useState('')
+    const [showAllData, setShowAllData] = useState(true)
 
     // fetch/load news data
     useEffect(() => {
@@ -21,8 +22,9 @@ const HomepageMiddle = () => {
             .then(data => setNewsData(data))
     }, [id])
 
-        return (
-            newsData && newsData.map(news => {
+    return (
+        <>
+            {newsData && newsData.slice(0, showAllData ? 5 : undefined).map(news => {
                 const { author, details, image_url, title, rating, total_view, _id } = news
                 return <Card key={news._id} className='p-3 mb-3' data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom">
@@ -61,8 +63,10 @@ const HomepageMiddle = () => {
                         </div>
                     </Card.Body>
                 </Card>
-            })
-        )
+            })}
+            {newsData.length > 5 && <button className='btn btn-primary' onClick={() => setShowAllData(!showAllData)}>{showAllData ? 'Show all data' : 'Shows less'}</button>}
+        </>
+    )
 
 };
 
