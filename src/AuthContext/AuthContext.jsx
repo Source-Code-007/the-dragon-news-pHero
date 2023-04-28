@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from '../firebase/firebase.config';
+import { useLocation } from 'react-router-dom';
 
 export const authContext = createContext()
 const auth = getAuth(app)
@@ -44,7 +45,7 @@ const AuthContext = ({ children }) => {
             displayName: name
         })
     }
-
+    
     // hold signin user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {

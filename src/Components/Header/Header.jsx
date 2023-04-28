@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { authContext } from '../../AuthContext/AuthContext';
 import './Header.css'
 import logo from '../../assets/img/logo.png'
@@ -51,9 +51,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mx-auto" style={{ fontSize: '22px' }}>
-                            <Link to='/home' className='text-decoration-none text-dark mx-2'>Home</Link>
-                            <Link to='/services' className='text-decoration-none text-dark mx-2'>Services</Link>
-                            <Link to='/about' className='text-decoration-none text-dark mx-2'>About</Link>
+                            <NavLink to='/home' className={({isActive})=> `text-decoration-none text-dark mx-2 ${isActive && 'border-bottom border-danger'}`}>Home</NavLink>
+                            <NavLink to='/services' className={({isActive})=> `text-decoration-none text-dark mx-2 ${isActive && 'border-bottom border-danger'}`}>Services</NavLink>
+                            <NavLink to='/about' className={({isActive})=> `text-decoration-none text-dark mx-2 ${isActive && 'border-bottom border-danger'}`}>About</NavLink>
                         </Nav>
                         <div>
                             {

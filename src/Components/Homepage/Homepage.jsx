@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import HomepageRight from './HomepageRight';
-import HomepageMiddle from './HomepageMiddle';
 import { Outlet } from 'react-router-dom';
 import HomepageLeft from './HomepageLeft';
 
