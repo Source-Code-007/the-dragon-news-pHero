@@ -9,8 +9,9 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Signup = () => {
     const { createUserFunc, updateUserProfileFunc, emailVerificationFunc } = useContext(authContext)
     const [ showPass, setShowPass ] = useState(true)
-    const [ alert, setAlert ] = useState('') 
-    const [ error, setError ] = useState('')
+    const [ checkTerms, setCheckTerms ] = useState(false)
+    const [alert, setAlert] = useState('')
+    const [error, setError] = useState('')
 
     // register submit func
     const signupSubmitFunc = (e) => {
@@ -54,12 +55,13 @@ const Signup = () => {
                 </Form.Group>
                 <Form.Group className="mb-3 w-100 position-relative" >
                     <Form.Label>Password</Form.Label>
-                    <Form.Control className='my-inp' name='password' type={showPass? 'password' : 'text'} placeholder="Password" />
-                    <span onClick={()=> setShowPass(!showPass)} className='position-absolute' style={{right: '8px', bottom: '8px'}}> { showPass ? <FaEyeSlash/> : <FaEye/> } </span>
+                    <Form.Control className='my-inp' name='password' type={showPass ? 'password' : 'text'} placeholder="Password" />
+                    <span onClick={() => setShowPass(!showPass)} className='position-absolute' style={{ right: '8px', bottom: '8px' }}> {showPass ? <FaEyeSlash /> : <FaEye />} </span>
                 </Form.Group>
                 {alert && <h4 className='my-2 text-info'>{alert}</h4>}
                 {error && <h4 className='my-2 text-danger'>{error}</h4>}
-                <Button type='submit' variant='success' className='w-100'>Register</Button>
+                <Form.Check onClick={()=> setCheckTerms(!checkTerms)} type='checkbox' id='termsCheckbox' label={<>Accept <Link to={'/terms'}>Terms and conditions</Link></>} className='my-2 me-auto' />
+                <Button disabled={!checkTerms} type='submit' variant='success' className='w-100'>Register</Button>
                 <h6 className='mt-3'>Already have an account? <Link to='/signin'>Login</Link></h6>
             </Form>
         </div>

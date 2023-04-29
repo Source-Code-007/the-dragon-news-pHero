@@ -7,6 +7,7 @@ import Signin from "./Components/Signin/Signin";
 import Signup from "./Components/Signup/Signup";
 import About from "./Components/About/About";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Terms from "./Components/Terms/Terms";
 
 export const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup></Signup>
+            },
+            {
+                path: '/terms',
+                element: <Terms></Terms>
             },
         ]
     }
