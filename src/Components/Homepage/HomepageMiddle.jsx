@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 import { Link, useParams } from 'react-router-dom';
 
 // AOS Animation
@@ -51,14 +52,9 @@ const HomepageMiddle = () => {
                     }
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
-                            <p>
-                                {/* {<Rating
-                                initialRating={rating.number}
-                                emptySymbol={<FaRegStar></FaRegStar>}
-                                fullSymbol={<FaStar></FaStar>}
-                            />} */}
-                                rating
-                            </p>
+                            <div>
+                                {<Rating style={{ maxWidth: 300 }} readOnly value={rating.number} />}
+                            </div>
                             <p> <FaEye></FaEye> {total_view}</p>
                         </div>
                     </Card.Body>
