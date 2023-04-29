@@ -13,6 +13,7 @@ const Signup = () => {
     const [alert, setAlert] = useState('')
     const [error, setError] = useState('')
 
+
     // register submit func
     const signupSubmitFunc = (e) => {
         e.preventDefault()
