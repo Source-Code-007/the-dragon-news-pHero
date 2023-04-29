@@ -53,7 +53,7 @@ const HomepageMiddle = () => {
                     <Card.Body>
                         <div className='d-flex justify-content-between gap-3'>
                             <div>
-                                {<Rating style={{ maxWidth: 300 }} readOnly value={rating.number} />}
+                                {<Rating style={{ maxWidth: 120 }} readOnly value={rating.number} />}
                             </div>
                             <p> <FaEye></FaEye> {total_view}</p>
                         </div>
