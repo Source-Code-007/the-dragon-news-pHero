@@ -17,7 +17,7 @@ const HomepageMiddle = () => {
 
     // fetch/load news data
     useEffect(() => {
-        fetch(`http://localhost:3000/categories/${id || 0}`)
+        fetch(`https://the-dragon-news-server-seven.vercel.app/categories/${id || 0}`)
             .then(res => res.json())
             .then(data => setNewsData(data))
     }, [id])

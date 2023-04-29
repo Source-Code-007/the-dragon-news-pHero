@@ -8,7 +8,7 @@ const Homepage = () => {
 
     // fetch/load catagories data for left side nav
     useEffect(() => {
-        fetch('http://localhost:3000/categories')
+        fetch('https://the-dragon-news-server-seven.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(e => console.log(e.message))
