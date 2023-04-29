@@ -58,7 +58,7 @@ const Header = () => {
                         <div>
                             {
                                 loading ? <div className='animate-spinner'></div> : user ? <>
-                                    <img style={{ height: '40px', width: '40px' }} className='rounded-circle' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-haj5_5sYRCMxDHs-SoW1CG_OKySGAk5J700xjLM&s" alt="" />
+                                    <img style={{ height: '40px', width: '40px' }} className='rounded-circle' src={user.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-haj5_5sYRCMxDHs-SoW1CG_OKySGAk5J700xjLM&s"} alt="" />
                                     <Link to='/' onClick={handleSignOut} className='text-decoration-none text-light mx-2'><button className='btn btn-secondary'>Logout</button></Link>
                                 </> : <Link to='/signin' className='text-decoration-none mx-2'><button className='btn btn-secondary'>Login</button></Link>
                             }

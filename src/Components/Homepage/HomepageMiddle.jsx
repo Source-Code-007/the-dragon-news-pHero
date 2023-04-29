@@ -24,7 +24,7 @@ const HomepageMiddle = () => {
 
     return (
         <>
-            {newsData && newsData.slice(0, showAllData ? 5 : undefined).map(news => {
+            {newsData && newsData.slice(0, showAllData ? 5 : newsData.length).map(news => {
                 const { author, details, image_url, title, rating, total_view, _id } = news
                 return <Card key={news._id} className='p-3 mb-3' data-aos="fade-up"
                     data-aos-anchor-placement="center-bottom">

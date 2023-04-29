@@ -26,7 +26,7 @@ const Signin = () => {
         signinWithEmailPassFunc(email, password).then(res => {
             const currUser = res.user
             if (!currUser.emailVerified) {
-                setError('verified your email first')
+                setError('verify your email first')
                 return
             }
             setUser(currUser)
