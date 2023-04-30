@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
 import { Rating } from '@smastrom/react-rating'
@@ -8,20 +8,30 @@ import { Link, useParams } from 'react-router-dom';
 // AOS Animation
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { authContext } from '../../AuthContext/AuthContext';
 AOS.init();
 
 
 const HomepageMiddle = () => {
+    const { loading, setLoading } = useContext(authContext)
     const { id } = useParams()
     const [newsData, setNewsData] = useState('')
     const [showAllData, setShowAllData] = useState(true)
 
     // fetch/load news data
     useEffect(() => {
+        setLoading(true)
         fetch(`https://the-dragon-news-server-seven.vercel.app/categories/${id || 0}`)
             .then(res => res.json())
-            .then(data => setNewsData(data))
+            .then(data =>{
+                setNewsData(data)
+                setLoading(false)
+            })
     }, [id])
+
+    if (loading) {
+        return <div className='text-center d-flex justify-content-center align-items-center' style={{ height: '300px' }}><div className='animate-spinner'></div></div>
+    }
 
     return (
         <>

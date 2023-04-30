@@ -22,7 +22,6 @@ const Homepage = () => {
                         categories && categories.map(category => {
                             return <HomepageLeft key={category.id} categoryID={category.id} categoryName={category.name}></HomepageLeft>
                         })
-
                     }
                 </div>
 
